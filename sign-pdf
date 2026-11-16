@@ -14,8 +14,10 @@ canv.save()
 packet.seek(0)
 signature_pdf = PdfReader(packet)
 
-indir = Path("2027RF")
-outdir = Path("2027SignedRF")
+# Filepath containing base fillable PDF template
+path_name = *enter here*
+indir = Path(path_name)
+outdir = Path(path_name)
 outdir.mkdir(exist_ok=True)
 
 for file in indir.glob("*.pdf"):
