@@ -33,13 +33,13 @@ Any subsequent children follow the header convention on the row [nom2a,date2a,ta
 
 Get your PDF stamped with authorized provider signature. You may omit if you have Adobe Acrobat PRO installed that can sign fillable PDFs.
 
--> Current file is optimized to the PDF template but depending on original image size you can mess with the longitudinal coordinates in **line 15** of **2-sign-pdf.py**, as well as signature size.  
-
 Place a transparent PNG of your signature named signature.png in the project folder alongside the base PDF ACTCA-2027.pdf or signed_ACTCA-2027.pdf & filled client_template.xlsx.
 
 Run the signing script:
    ```bash
    python 2-sign-pdf.py
+
+Check the generated signed_*.pdf in the output/ folder. Depending on your image dimensions, you can adjust the (x, y) coordinates or width/height on **line 15** of **2-sign-pdf.py**.
 
 **Step 3: Batch-Generate Client PDFs**
 
