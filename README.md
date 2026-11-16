@@ -10,7 +10,7 @@ For CPEs, subsidized daycares, private daycares, and home daycare services provi
 1. Install **Python 3.10+** (check "Add Python to PATH" during installation on Windows).
 2. Open your terminal/command prompt inside this folder and install the required libraries:
    ```bash
-   pip install pypdf reportlab openpyxl cryptograph```
+   pip install pypdf reportlab openpyxl cryptograph
 
 ### Step by step instructions
 
@@ -36,7 +36,7 @@ Get your PDF stamped with authorized provider signature. You may omit if you hav
 1. Place a transparent PNG of your signature named signature.png in the project folder alongside the base PDF ACTCA-2027.pdf & filled client_template.xlsx.
 2. Run the signing script:
    ```bash
-   python 2-sign-pdf.py```
+   python 2-sign-pdf.py
 
 Check the generated signed_*.pdf in the output/ folder. Depending on your image dimensions, you can adjust the (x, y) coordinates or width/height on **line 15** of **2-sign-pdf.py**.
 
@@ -44,11 +44,11 @@ Check the generated signed_*.pdf in the output/ folder. Depending on your image 
 
 1. __Option A [3a-fill-pdf.py]: Prefilled and Saved Business Information (NEQ/Nas, Business name, Address, Phone, Date) in Step 1__
    ```bash
-   python 3a-fill-pdf.py```
+   python 3a-fill-pdf.py
 
 2. __Option B [3b-fill-pdf-extra.py]: Add this information directly to [fill-pdf-extra.py]__
    ```bash
-   python 3b-fill-pdf-extra.py```
+   python 3b-fill-pdf-extra.py
 
 All completed parent forms will be saved to the output directory ready for distribution.
 
