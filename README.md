@@ -10,7 +10,7 @@ For CPEs, subsidized daycares, private daycares, and home daycare services provi
 1. Install **Python 3.10+** (check "Add Python to PATH" during installation on Windows).
 2. Open your terminal/command prompt inside this folder and install the required libraries:
    ```bash
-   pip install pypdf reportlab openpyxl cryptography reportlab.lib.pagesizes reportlab.pdfgen io pathlib
+   pip install pypdf reportlab openpyxl cryptograph
 
 ### Step by step instructions
 
