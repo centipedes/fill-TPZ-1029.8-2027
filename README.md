@@ -37,7 +37,7 @@ Place a transparent PNG of your signature named signature.png in the project fol
 
 Run the signing script:
 ```bash
-   python 2-sign-pdf.py
+python 2-sign-pdf.py
 
 Check the generated signed_*.pdf in the output/ folder. Depending on your image dimensions, you can adjust the (x, y) coordinates or width/height on **line 15** of **2-sign-pdf.py**.
 
@@ -45,11 +45,11 @@ Check the generated signed_*.pdf in the output/ folder. Depending on your image 
 
 __Option A [3a-fill-pdf.py]: Prefilled and Saved Business Information (NEQ/Nas, Business name, Address, Phone, Date) in Step 1__
 ```bash
-   python 3a-fill-pdf.py
+python 3a-fill-pdf.py
 
 __Option B [3b-fill-pdf-extra.py]: Add this information directly to [fill-pdf-extra.py]__
 ```bash
-   python 3b-fill-pdf-extra.py
+python 3b-fill-pdf-extra.py
 
 All completed parent forms will be saved to the output directory ready for distribution.
 
