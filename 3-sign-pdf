@@ -22,10 +22,9 @@ signature_pdf = PdfReader(packet)
 for file in script_dir.glob(file_name):
     base_reader = PdfReader(file)
     writer = PdfWriter()
-     # Stamps the signature permanently
-    page = base_reader.pages[0]
-    page.merge_page(signature_pdf.pages[0]) 
-    writer.add_page(page)
+
+    writer.append(base_reader) 
+    writer.pages[0].merge_page(signature_pdf.pages[0])  # Stamp the signature onto the writer's copy 
 
     # Save your new "base" template that now includes the signature
     output_path = script_dir / f"signed_{file.name}"
