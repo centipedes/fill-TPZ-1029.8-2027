@@ -27,14 +27,14 @@ All children belonging to a single parent filer go into subsequent columns, with
 
 Any subsequent children follow the header convention on the row [nom2a,date2a,tarif2a,jour2a] etc up to 6 children
 
-**Step 2: Sign the prefilled PDF template [sign-pdf.py]**
+**Step 2: Sign the prefilled PDF template [2-sign-pdf.py]**
 
 Get your PDF stamped with authorized provider signature. You may omit if you have ADOBE Acrobat PRO that can sign fillable PDFs.
 
--> Current file is optimized to the PDF template but depending on original image size you can mess with the longitudinal coordinates in **line 15** of **sign-pdf.py**, as well as signature size.  
+-> Current file is optimized to the PDF template but depending on original image size you can mess with the longitudinal coordinates in **line 15** of **2-sign-pdf.py**, as well as signature size.  
 
-**Step 3: Create a prefilled pdf for each client parent filer [fill-pdf.py]**
+**Step 3: Create a prefilled pdf for each client parent filer**
 
-__Option 1 [fill-pdf.py]: Prefilled and Saved Business Information (NEQ/Nas, Business name, Address, Phone, Date) in Step 1__
+__Option A [3a-fill-pdf.py]: Prefilled and Saved Business Information (NEQ/Nas, Business name, Address, Phone, Date) in Step 1__
 
-__Option 2 [fill-pdf-extra.py]: Add this information directly to [fill-pdf-extra.py]__
+__Option B [3b-fill-pdf-extra.py]: Add this information directly to [fill-pdf-extra.py]__
