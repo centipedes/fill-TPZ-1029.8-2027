@@ -1,0 +1,88 @@
+from spire.pdf.common import *
+from spire.pdf import *
+
+inputFile = "TPZ-2027.pdf"
+outputFile = "GetFormFieldValues.txt"
+
+# Create a PdfDocument instance
+pdf = PdfDocument()
+
+# Load a PDF document
+pdf.LoadFromFile(inputFile)
+
+# Get PDF forms
+pdfform = pdf.Form
+formWidget = PdfFormWidget(pdfform)
+sb = []
+
+# Iterate through all fields in the form
+if formWidget.FieldsWidget.Count > 0:
+    for i in range(formWidget.FieldsWidget.Count):
+        field = formWidget.FieldsWidget.get_Item(i)
+
+        # Get the name and value of the textbox field
+        if isinstance(field, PdfTextBoxFieldWidget):
+            textBoxField = field if isinstance(field, PdfTextBoxFieldWidget) else None
+            name = textBoxField.Name
+            value = textBoxField.Text
+            sb.append("Textbox Name: " + name + "\r")
+            sb.append("Textbox Name " + value + "\r\n")
+
+        # Get the name of the listbox field
+        if isinstance(field, PdfListBoxWidgetFieldWidget):
+            listBoxField = field if isinstance(field, PdfListBoxWidgetFieldWidget) else None
+            name = listBoxField.Name
+            sb.append("Listbox Name: " + name + "\r")
+
+            # Get the items of the listbox field
+            sb.append("Listbox Items: \r")
+            items = listBoxField.Values
+            for i in range(items.Count):
+                item = items.get_Item(i)
+                sb.append(item.Value + "\r")
+
+            # Get the selected item of the listbox field
+            selectedValue = listBoxField.SelectedValue
+            sb.append("Listbox Selected Value: " + selectedValue + "\r\n")
+
+        # Get the name of the combo box field
+        if isinstance(field, PdfComboBoxWidgetFieldWidget):
+            comBoxField = field if isinstance(field, PdfComboBoxWidgetFieldWidget) else None
+            name = comBoxField.Name
+            sb.append("Combobox Name: " + name + "\r");
+
+            # Get the items of the combo box field
+            sb.append("Combobox Items: \r");
+            items = comBoxField.Values
+            for i in range(items.Count):
+                item = items.get_Item(i)
+                sb.append(item.Value + "\r")
+
+            # Get the selected item of the combo box field
+            selectedValue = comBoxField.SelectedValue
+            sb.append("Combobox Selected Value: " + selectedValue + "\r\n")
+
+        # Get the name and selected item of the radio button field
+        if isinstance(field, PdfRadioButtonListFieldWidget):
+            radioBtnField = field if isinstance(field, PdfRadioButtonListFieldWidget) else None
+            name = radioBtnField.Name
+            selectedValue = radioBtnField.SelectedValue
+            sb.append("Radio Button Name: " + name + "\r");
+            sb.append("Radio Button Selected Value: " + selectedValue + "\r\n")
+
+        # Get the name and status of the checkbox field
+        if isinstance(field, PdfCheckBoxWidgetFieldWidget):
+            checkBoxField = field if isinstance(field, PdfCheckBoxWidgetFieldWidget) else None
+            name = checkBoxField.Name
+            sb.append("Checkbox Name: " + name + "\r")
+
+            state = checkBoxField.Checked
+            stateValue = "Yes" if state else "No"
+            sb.append("If the checkBox is checked: " + stateValue + "\r\n")
+
+# Write the results to a text file
+f2 = open(outputFile, 'w', encoding='UTF-8')
+for item in sb:
+    f2.write(item)
+f2.close()
+pdf.Close()
