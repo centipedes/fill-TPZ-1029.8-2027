@@ -1,7 +1,7 @@
 from spire.pdf.common import *
 from spire.pdf import *
 
-inputFile = "TPZ-2027.pdf"
+inputFile = "ACTCA-2027.pdf"
 outputFile = "GetFormFieldValues.txt"
 
 # Create a PdfDocument instance
