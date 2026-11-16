@@ -1,0 +1,32 @@
+from pypdf import PdfReader, PdfWriter
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+import io
+from pathlib import Path
+
+packet = io.BytesIO()
+canv = canvas.Canvas(packet, pagesize=letter)
+
+canv.drawImage("signature.png", 80, 235, width=120, height=40, mask='auto')
+
+canv.save()
+
+packet.seek(0)
+signature_pdf = PdfReader(packet)
+
+indir = Path("2027RF")
+outdir = Path("2027SignedRF")
+outdir.mkdir(exist_ok=True)
+
+for file in indir.glob("*.pdf"):
+    base_reader = PdfReader(file)
+    writer = PdfWriter()
+
+    page = base_reader.pages[0]
+    page.merge_page(signature_pdf.pages[0])  # Stamps the signature permanently
+    writer.add_page(page)
+
+    # Save new base fillable pdf template that now includes the signature
+    output_path = outdir / f"signed_{file.name}"
+    with open(output_path, "wb") as f:
+        writer.write(f)
