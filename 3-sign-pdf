@@ -15,7 +15,7 @@ packet.seek(0)
 signature_pdf = PdfReader(packet)
 
 # Filepath containing base fillable PDF template
-path_name = *enter here*
+path_name = "/BASEPDF/"
 indir = Path(path_name)
 outdir = Path(path_name)
 outdir.mkdir(exist_ok=True)
