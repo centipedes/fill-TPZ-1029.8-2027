@@ -1,0 +1,56 @@
+import crypto
+import os
+import openpyxl
+import cryptography
+from pypdf import PdfReader, PdfWriter
+
+# Template file filled with all your client information
+template_name = *enter template file name here*
+workbook = openpyxl.load_workbook(template_name)
+sheet = workbook.active
+
+# Enter input file name here
+signed_pdf_template = *enter signed base pdf template name here*
+reader = PdfReader(signed_pdf_template)
+
+for row in range(2, sheet.max_row + 1):
+    writer = PdfWriter()
+    writer.append(reader)
+    pdfTitle = None
+
+    nas = sheet.cell(row=row, column=1).value
+    nomFam = sheet.cell(row=row, column=2).value
+    nom1a = sheet.cell(row=row, column=3).value
+    date1a = sheet.cell(row=row, column=4).value
+    tarif1a = sheet.cell(row=row, column=5).value
+    jour1a = sheet.cell(row=row, column=6).value
+    nom2a = sheet.cell(row=row, column=7).value
+    date2a = sheet.cell(row=row, column=8).value
+    tarif2a = sheet.cell(row=row, column=9).value
+    jour2a = sheet.cell(row=row, column=10).value
+
+    field_data = {
+        "nas":  str(nas) if nas is not None else "",
+        "nomFam": str(nomFam) if nomFam is not None else "",
+        "nom1a": str(nom1a) if nom1a is not None else "",
+        "date1a": date1a if date1a is not None else "",
+        "tarif1a": f"{float(tarif1a):.2f}" if tarif1a is not None else "",
+        "jour1a": f"{float(jour1a):.2f}" if jour1a is not None else "",
+        "nom2a": str(nom2a) if nom2a is not None else "",
+        "date2a": date2a if date2a is not None else "",
+        "tarif2a": f"{float(tarif2a):.2f}" if tarif2a is not None else "",
+        "jour2a": f"{float(jour2a):.2f}" if jour2a is not None else "",
+    }
+
+    # Output information including output directory and file template name. I am using parent filer last name 2027
+    pdfTitle = f"{nomFam} 2027.pdf"
+    output_dir = *enter output directory here*
+
+    # Update the form fields
+    writer.update_page_form_field_values(writer.pages[0], field_data)
+
+    # Save the custom prefilled PDF
+    output_filename = os.path.join(output_dir, pdfTitle)
+    with open(output_filename, "wb") as output_file:
+        writer.write(output_file)
+
