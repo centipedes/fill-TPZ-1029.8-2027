@@ -1,16 +1,15 @@
-import crypto
 import os
 import openpyxl
-import cryptography
 from pypdf import PdfReader, PdfWriter
+from pathlib import Path
 
-# Template file filled with all your client information
-template_name = "client_template.xlsx"
-workbook = openpyxl.load_workbook(template_name)
+# Get the project directory 
+script_dir = Path(__file__).parent
+
+workbook = openpyxl.load_workbook(script_dir / "client_template.xlsx")
 sheet = workbook.active
 
-signed_pdf_template = "signed_ACTCA-2027.pdf"
-reader = PdfReader(signed_pdf_template)
+reader = PdfReader(script_dir / "signed_ACTCA-2027.pdf")
 
 for row in range(2, sheet.max_row + 1):
     writer = PdfWriter()
@@ -38,12 +37,12 @@ for row in range(2, sheet.max_row + 1):
         "nom2a": str(nom2a) if nom2a is not None else "",
         "date2a": date2a if date2a is not None else "",
         "tarif2a": f"{float(tarif2a):.2f}" if tarif2a is not None else "",
-        "jour2a": f"{float(jour2a):.2f}" if jour2a is not None else "",
+        "jour2a": f"{float(jour2a):.2f}" if jour2a is not None else ""
     }
 
-    # Output information including output directory and file template name. This one uses parent filer last name 2027
     pdfTitle = f"{nomFam} 2027.pdf"
-    output_dir = "Filled_ACTCA_2027"
+    output_dir = script_dir / "Filled_ACTCA_2027"
+    output_dir.mkdir(exist_ok=True)
 
     # Update the form fields
     writer.update_page_form_field_values(writer.pages[0], field_data)
