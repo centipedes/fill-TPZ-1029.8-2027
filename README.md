@@ -23,7 +23,7 @@ Can do this by hand and then save the fillable PDF. Alternatively, may also add 
 
 Get your PDF stamped with authorized provider signature.
 
--> Current file is optimized to the PDF template but depending on original image size you can mess with the longitudinal coordinates in **line 10** of **sign-pdf.py**, as well as signature size.
+-> Current file is optimized to the PDF template but depending on original image size you can mess with the longitudinal coordinates in **line 10** of **sign-pdf.py**, as well as signature size.  
 
 **Step 4: Fill client information in the [client_template.xlsx] file**
 
