@@ -22,13 +22,10 @@ Fill the client information template. Make sure all SIN numbers are correct. Eac
 
 All children belonging to a single parent filer go into subsequent columns, with:
 
-> nom1a being the child's Lastname, First name
-
-> date1a being the child's date of birth in YYYYMMDD format
-
-> tarif1a being the child's daily rate
-
-> jour1a being the total number of attendance days in the fiscal year
+* nom1a being the child's Lastname, First name
+* date1a being the child's date of birth in YYYYMMDD format
+* tarif1a being the child's daily rate
+* jour1a being the total number of attendance days in the fiscal year
 
 Any subsequent children follow the header convention on the row [nom2a,date2a,tarif2a,jour2a] etc up to 6 children
 
