@@ -1,5 +1,5 @@
 # fill-TPZ-1029.8-2027
-Autofill the Tax Credit for Childcare Expenses: Application for Advance Payments form by Revenu Quebec. 
+Autofill the Tax Credit for Childcare Expenses: Application for Advance Payments fillable PDF form by Revenu Quebec. 
 
 For CPEs, subsidized daycares, private daycares, and home daycare services providers who do not have software to do this and want to quickly fill these pdfs for free instead of spending hours doing it by hand.
 
