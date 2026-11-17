@@ -4,7 +4,6 @@ Filled_ACTCA_2027/
 *.pdf
 
 # Sensitive local signature images
-*signature.png
 *.png
 *.jpg
 *.jpeg
