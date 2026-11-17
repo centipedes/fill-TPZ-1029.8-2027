@@ -10,8 +10,8 @@ For CPEs, subsidized daycares, private daycares, and home daycare services provi
 1. Install **Python 3.10+** (check "Add Python to PATH" during installation on Windows).
 2. Open your terminal/command prompt inside this folder and install the required libraries:
    ```bash
-   pip install pypdf reportlab openpyxl cryptograph
-
+   pip install -r requirements.txt
+   
 ### Step by step instructions
 
 **Step 1: Prefill fillable PDF with business information [Business number/NAS of provider, Business Address, Phone Number, Current Date] & Fill client information in the [client_template.xlsx] file**
