@@ -1,0 +1,37 @@
+# Generated output folders and signed PDFs
+output/
+Filled_ACTCA_2027/
+*.pdf
+
+# Sensitive local signature images
+*signature.png
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.tif
+*.tiff
+*.svg
+*.heic
+
+# Spreadsheets and data exports (CSV, Excel, OpenDocument)
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.ods
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# OS metadata
+.DS_Store
+Thumbs.db
